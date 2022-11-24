@@ -1,0 +1,14 @@
+<%= form_with(model: comment) do |form| %>
+  <div>
+    <%= form.label 'Novo comentário', style: "display: block" %>
+    <%= form.text_area :body, rows: 10 %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :movie_id, value: movie_id %>
+  </div>
+
+  <div>
+    <%= form.submit 'Adicionar comentário' %>
+  </div>
+<% end %>

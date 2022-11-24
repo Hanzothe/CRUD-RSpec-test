@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @movie %>
+
+<% @movie.authors.each do |author| %>
+  <p>- Nome: <%= author.name %></p>
+<% end %>
+
+<hr>
+
+<%= render '/movies/comments/form', 
+  comment: @comment, movie_id: @movie.id %>
+
+<hr>
+
+<%= render '/movies/comments/index', 
+  comments: @movie.comments.approveds %>
+
+<div>
+  <%= link_to "Edit this movie", edit_movie_path(@movie) %> |
+  <%= link_to "Back to movies", movies_path %>
+
+  <%= button_to "Destroy this movie", @movie, method: :delete %>
+</div>

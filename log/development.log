@@ -1,0 +1,796 @@
+Started GET "/" for 127.0.0.1 at 2022-11-24 16:15:28 +0000
+  [1m[35m (16.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 4 pending migrations:
+
+20221121224034_create_movies.rb
+20221121225119_create_authors.rb
+20221121230011_create_authors_movies.rb
+20221121235728_create_comments.rb
+
+
+):
+  
+activerecord (7.0.4) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/rails/actions" for 127.0.0.1 at 2022-11-24 16:15:31 +0000
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMovies (20221121224034)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "movies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "year" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221121224034"]]
+  [1m[36mTRANSACTION (16.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAuthors (20221121225119)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "year" integer, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221121225119"]]
+  [1m[36mTRANSACTION (16.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAuthorsMovies (20221121230011)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "authors_movies" ("author_id" integer NOT NULL, "movie_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8765f1d7b4"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_a6869b033d"
+FOREIGN KEY ("movie_id")
+  REFERENCES "movies" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_authors_movies_on_author_id" ON "authors_movies" ("author_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_authors_movies_on_movie_id" ON "authors_movies" ("movie_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221121230011"]]
+  [1m[36mTRANSACTION (17.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateComments (20221121235728)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "movie_id" integer NOT NULL, "approved" boolean DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_56963e5c80"
+FOREIGN KEY ("movie_id")
+  REFERENCES "movies" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_comments_on_movie_id" ON "comments" ("movie_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221121235728"]]
+  [1m[36mTRANSACTION (27.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-24 16:15:31.765103"], ["updated_at", "2022-11-24 16:15:31.765103"]]
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-11-24 16:15:31 +0000
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 10.5ms | Allocations: 5050)
+  Rendered layouts/_menu.html.erb (Duration: 0.6ms | Allocations: 125)
+  Rendered layout layouts/application.html.erb (Duration: 411.1ms | Allocations: 113595)
+Completed 200 OK in 456ms (Views: 412.9ms | ActiveRecord: 0.2ms | Allocations: 120708)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-11-24 16:15:36 +0000
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:6
+  Rendered authors/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1295)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 3821)
+Completed 200 OK in 37ms (Views: 19.6ms | ActiveRecord: 0.3ms | Allocations: 6850)
+
+
+Started GET "/comments" for 127.0.0.1 at 2022-11-24 16:15:36 +0000
+Processing by CommentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering comments/index.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."approved" = ?[0m  [["approved", 0]]
+  ↳ app/views/comments/index.html.erb:6
+  Rendered comments/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1183)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3729)
+Completed 200 OK in 19ms (Views: 10.2ms | ActiveRecord: 0.7ms | Allocations: 5980)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-11-24 16:15:37 +0000
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:6
+  Rendered authors/index.html.erb within layouts/application (Duration: 10.5ms | Allocations: 760)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 3063)
+Completed 200 OK in 17ms (Views: 16.6ms | ActiveRecord: 0.1ms | Allocations: 3370)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 16:15:37 +0000
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 755)
+  Rendered layouts/_menu.html.erb (Duration: 0.2ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 3057)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.2ms | Allocations: 3333)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-11-24 16:15:38 +0000
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:6
+  Rendered authors/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 752)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 3055)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.2ms | Allocations: 3328)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 16:15:39 +0000
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 751)
+  Rendered layouts/_menu.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 42.1ms | Allocations: 3053)
+Completed 200 OK in 56ms (Views: 55.4ms | ActiveRecord: 0.2ms | Allocations: 3326)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 16:36:05 +0000
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 922)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 3228)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.7ms | Allocations: 3500)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 17:47:23 +0000
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 31.4ms | Allocations: 1177)
+  Rendered layouts/_menu.html.erb (Duration: 0.2ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 131.2ms | Allocations: 14975)
+Completed 200 OK in 184ms (Views: 140.6ms | ActiveRecord: 2.7ms | Allocations: 18417)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2022-11-24 17:47:26 +0000
+Processing by MoviesController#new as HTML
+  [1m[36mAuthor Pluck (0.3ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 160.6ms | Allocations: 13675)
+  Rendered movies/new.html.erb within layouts/application (Duration: 165.1ms | Allocations: 14010)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 172.0ms | Allocations: 16448)
+Completed 200 OK in 296ms (Views: 172.9ms | ActiveRecord: 3.3ms | Allocations: 22771)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 17:47:30 +0000
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 11.0ms | Allocations: 805)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 3108)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.2ms | Allocations: 3418)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-11-24 17:47:32 +0000
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:6
+  Rendered authors/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 980)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 3505)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.3ms | Allocations: 4220)
+
+
+Started GET "/authors/new" for 127.0.0.1 at 2022-11-24 17:47:33 +0000
+Processing by AuthorsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/new.html.erb within layouts/application
+  Rendered authors/_form.html.erb (Duration: 4.0ms | Allocations: 1840)
+  Rendered authors/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2140)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 4441)
+Completed 200 OK in 21ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 7214)
+
+
+Started POST "/authors" for 127.0.0.1 at 2022-11-24 17:47:50 +0000
+Processing by AuthorsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "author"=>{"name"=>"Junior", "year"=>"2006", "email"=>"tes@gmail.com"}, "commit"=>"Create Author"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/authors_controller.rb:27:in `block in create'
+  [1m[36mAuthor Create (0.7ms)[0m  [1m[32mINSERT INTO "authors" ("name", "year", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Junior"], ["year", 2006], ["email", "tes@gmail.com"], ["created_at", "2022-11-24 17:47:50.551325"], ["updated_at", "2022-11-24 17:47:50.551325"]]
+  ↳ app/controllers/authors_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (15.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/authors_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/authors/1
+Completed 302 Found in 43ms (ActiveRecord: 16.9ms | Allocations: 2911)
+
+
+Started GET "/authors/1" for 127.0.0.1 at 2022-11-24 17:47:50 +0000
+Processing by AuthorsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:63:in `set_author'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/_author.html.erb (Duration: 1.3ms | Allocations: 250)
+  Rendered authors/show.html.erb within layouts/application (Duration: 12.1ms | Allocations: 1529)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 3938)
+Completed 200 OK in 29ms (Views: 22.1ms | ActiveRecord: 0.3ms | Allocations: 5553)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 17:47:51 +0000
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 855)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 3159)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.2ms | Allocations: 3468)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2022-11-24 17:47:52 +0000
+Processing by MoviesController#new as HTML
+  [1m[36mAuthor Pluck (0.1ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 12.4ms | Allocations: 1754)
+  Rendered movies/new.html.erb within layouts/application (Duration: 13.3ms | Allocations: 1842)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 4143)
+Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 0.1ms | Allocations: 4909)
+
+
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 17:48:12 +0000
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 13.0ms | Allocations: 746)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 3048)
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 0.2ms | Allocations: 3321)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2022-11-24 17:48:13 +0000
+Processing by MoviesController#new as HTML
+  [1m[36mAuthor Pluck (0.2ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 18.1ms | Allocations: 1594)
+  Rendered movies/new.html.erb within layouts/application (Duration: 18.7ms | Allocations: 1681)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 3982)
+Completed 200 OK in 35ms (Views: 24.5ms | ActiveRecord: 0.2ms | Allocations: 4732)
+
+
+Started POST "/movies" for 127.0.0.1 at 2022-11-24 17:48:18 +0000
+Processing by MoviesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"title"=>"Filme 1", "year"=>"1111", "author_ids"=>["", "1"]}, "commit"=>"Create Movie"}
+  [1m[36mAuthor Pluck (0.2ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/movies_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:28:in `block in create'
+  [1m[36mMovie Create (0.6ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Filme 1"], ["year", 1111], ["created_at", "2022-11-24 17:48:18.221549"], ["updated_at", "2022-11-24 17:48:18.221549"]]
+  ↳ app/controllers/movies_controller.rb:28:in `block in create'
+  [1m[36mMovie::HABTM_Authors Create (0.8ms)[0m  [1m[32mINSERT INTO "authors_movies" ("author_id", "movie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["author_id", 1], ["movie_id", 1], ["created_at", "2022-11-24 17:48:18.228734"], ["updated_at", "2022-11-24 17:48:18.228734"]]
+  ↳ app/controllers/movies_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (10.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:28:in `block in create'
+Redirected to http://127.0.0.1:3000/movies/1
+Completed 302 Found in 78ms (ActiveRecord: 13.0ms | Allocations: 14607)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2022-11-24 17:48:18 +0000
+Processing by MoviesController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:64:in `set_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/_movie.html.erb (Duration: 0.9ms | Allocations: 176)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_movies" ON "authors"."id" = "authors_movies"."author_id" WHERE "authors_movies"."movie_id" = ?[0m  [["movie_id", 1]]
+  ↳ app/views/movies/show.html.erb:5
+  Rendered movies/comments/_form.html.erb (Duration: 8.0ms | Allocations: 1392)
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."approved" = ?[0m  [["approved", 1]]
+  ↳ app/views/movies/comments/_index.html.erb:1
+  Rendered movies/comments/_index.html.erb (Duration: 3.2ms | Allocations: 885)
+  Rendered movies/show.html.erb within layouts/application (Duration: 36.8ms | Allocations: 8254)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 43.8ms | Allocations: 10663)
+Completed 200 OK in 63ms (Views: 44.1ms | ActiveRecord: 1.4ms | Allocations: 15917)
+
+
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mAuthor Pluck (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  [1m[36mMovie Pluck (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuthor Pluck (0.5ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+Started GET "/movies/1/edit" for 127.0.0.1 at 2022-11-24 18:18:59 +0000
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:64:in `set_movie'
+  [1m[36mAuthor Pluck (0.3ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.html.erb within layouts/application
+  [1m[36mAuthor Pluck (0.3ms)[0m  [1m[34mSELECT "authors"."id" FROM "authors" INNER JOIN "authors_movies" ON "authors"."id" = "authors_movies"."author_id" WHERE "authors_movies"."movie_id" = ?[0m  [["movie_id", 1]]
+  ↳ app/views/movies/_form.html.erb:26
+  Rendered movies/_form.html.erb (Duration: 10.8ms | Allocations: 2453)
+  Rendered movies/edit.html.erb within layouts/application (Duration: 15.3ms | Allocations: 2727)
+  Rendered layouts/_menu.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 5021)
+Completed 200 OK in 38ms (Views: 25.6ms | ActiveRecord: 1.8ms | Allocations: 6525)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 18:19:02 +0000
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 860)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 3169)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.3ms | Allocations: 3443)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2022-11-24 18:19:03 +0000
+Processing by MoviesController#new as HTML
+  [1m[36mAuthor Pluck (0.2ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 6.6ms | Allocations: 1625)
+  Rendered movies/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1712)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 4013)
+Completed 200 OK in 19ms (Views: 16.4ms | ActiveRecord: 0.2ms | Allocations: 4765)
+
+
+Started POST "/movies" for 127.0.0.1 at 2022-11-24 18:19:08 +0000
+Processing by MoviesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"title"=>"Poderoso Chefão", "year"=>"111", "author_ids"=>[""]}, "commit"=>"Create Movie"}
+  [1m[36mAuthor Pluck (0.2ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:28:in `block in create'
+  [1m[36mMovie Create (1.7ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Poderoso Chefão"], ["year", 111], ["created_at", "2022-11-24 18:19:08.388969"], ["updated_at", "2022-11-24 18:19:08.388969"]]
+  ↳ app/controllers/movies_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:28:in `block in create'
+Redirected to http://127.0.0.1:3000/movies/2
+Completed 302 Found in 32ms (ActiveRecord: 14.4ms | Allocations: 3070)
+
+
+Started GET "/movies/2" for 127.0.0.1 at 2022-11-24 18:19:08 +0000
+Processing by MoviesController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:64:in `set_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/_movie.html.erb (Duration: 0.1ms | Allocations: 21)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_movies" ON "authors"."id" = "authors_movies"."author_id" WHERE "authors_movies"."movie_id" = ?[0m  [["movie_id", 2]]
+  ↳ app/views/movies/show.html.erb:5
+  Rendered movies/comments/_form.html.erb (Duration: 3.1ms | Allocations: 590)
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."approved" = ?[0m  [["approved", 1]]
+  ↳ app/views/movies/comments/_index.html.erb:1
+  Rendered movies/comments/_index.html.erb (Duration: 2.6ms | Allocations: 591)
+  Rendered movies/show.html.erb within layouts/application (Duration: 16.4ms | Allocations: 2966)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 5259)
+Completed 200 OK in 32ms (Views: 27.9ms | ActiveRecord: 0.8ms | Allocations: 6059)
+
+
+Started GET "/movies/2" for 127.0.0.1 at 2022-11-24 18:20:52 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:64:in `set_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/_movie.html.erb (Duration: 0.1ms | Allocations: 42)
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_movies" ON "authors"."id" = "authors_movies"."author_id" WHERE "authors_movies"."movie_id" = ?[0m  [["movie_id", 2]]
+  ↳ app/views/movies/show.html.erb:5
+  Rendered movies/comments/_form.html.erb (Duration: 4.9ms | Allocations: 790)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."approved" = ?[0m  [["approved", 1]]
+  ↳ app/views/movies/comments/_index.html.erb:1
+  Rendered movies/comments/_index.html.erb (Duration: 2.8ms | Allocations: 635)
+  Rendered movies/show.html.erb within layouts/application (Duration: 32.1ms | Allocations: 10095)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 56.6ms | Allocations: 23850)
+Completed 200 OK in 92ms (Views: 57.4ms | ActiveRecord: 3.6ms | Allocations: 32958)
+
+
+Started DELETE "/movies/2" for 127.0.0.1 at 2022-11-24 18:20:56 +0000
+Processing by MoviesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:64:in `set_movie'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:53:in `destroy'
+  [1m[36mMovie::HABTM_Authors Delete All (0.5ms)[0m  [1m[31mDELETE FROM "authors_movies" WHERE "authors_movies"."movie_id" = ?[0m  [["movie_id", 2]]
+  ↳ app/controllers/movies_controller.rb:53:in `destroy'
+  [1m[36mMovie Destroy (0.8ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/movies_controller.rb:53:in `destroy'
+  [1m[36mTRANSACTION (11.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:53:in `destroy'
+Redirected to http://127.0.0.1:3000/movies
+Completed 302 Found in 33ms (ActiveRecord: 13.2ms | Allocations: 3641)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 18:20:57 +0000
+Processing by MoviesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 904)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 3210)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.3ms | Allocations: 3515)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2022-11-24 18:20:57 +0000
+Processing by MoviesController#new as HTML
+  [1m[36mAuthor Pluck (0.2ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 16.2ms | Allocations: 1682)
+  Rendered movies/new.html.erb within layouts/application (Duration: 17.0ms | Allocations: 1771)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 4084)
+Completed 200 OK in 30ms (Views: 24.5ms | ActiveRecord: 0.2ms | Allocations: 4910)
+
+
+Started POST "/movies" for 127.0.0.1 at 2022-11-24 18:21:04 +0000
+Processing by MoviesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"title"=>"Filme 2", "year"=>"1111", "author_ids"=>[""]}, "commit"=>"Create Movie"}
+  [1m[36mAuthor Pluck (0.1ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:28:in `block in create'
+  [1m[36mMovie Create (0.6ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Filme 2"], ["year", 1111], ["created_at", "2022-11-24 18:21:04.263937"], ["updated_at", "2022-11-24 18:21:04.263937"]]
+  ↳ app/controllers/movies_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:28:in `block in create'
+Redirected to http://127.0.0.1:3000/movies/3
+Completed 302 Found in 28ms (ActiveRecord: 12.9ms | Allocations: 3281)
+
+
+Started GET "/movies/3" for 127.0.0.1 at 2022-11-24 18:21:04 +0000
+Processing by MoviesController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:64:in `set_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/_movie.html.erb (Duration: 0.1ms | Allocations: 21)
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_movies" ON "authors"."id" = "authors_movies"."author_id" WHERE "authors_movies"."movie_id" = ?[0m  [["movie_id", 3]]
+  ↳ app/views/movies/show.html.erb:5
+  Rendered movies/comments/_form.html.erb (Duration: 2.6ms | Allocations: 588)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."approved" = ?[0m  [["approved", 1]]
+  ↳ app/views/movies/comments/_index.html.erb:1
+  Rendered movies/comments/_index.html.erb (Duration: 5.0ms | Allocations: 562)
+  Rendered movies/show.html.erb within layouts/application (Duration: 14.3ms | Allocations: 2889)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 5182)
+Completed 200 OK in 25ms (Views: 21.2ms | ActiveRecord: 0.6ms | Allocations: 5981)
+
+
+Started DELETE "/movies/3" for 127.0.0.1 at 2022-11-24 18:21:08 +0000
+Processing by MoviesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:64:in `set_movie'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:53:in `destroy'
+  [1m[36mMovie::HABTM_Authors Delete All (0.2ms)[0m  [1m[31mDELETE FROM "authors_movies" WHERE "authors_movies"."movie_id" = ?[0m  [["movie_id", 3]]
+  ↳ app/controllers/movies_controller.rb:53:in `destroy'
+  [1m[36mMovie Destroy (0.4ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/movies_controller.rb:53:in `destroy'
+  [1m[36mTRANSACTION (16.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:53:in `destroy'
+Redirected to http://127.0.0.1:3000/movies
+Completed 302 Found in 33ms (ActiveRecord: 17.6ms | Allocations: 3038)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 18:21:08 +0000
+Processing by MoviesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 840)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 3145)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.2ms | Allocations: 3421)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 18:23:41 +0000
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 85.5ms | Allocations: 5825)
+  Rendered layouts/_menu.html.erb (Duration: 0.7ms | Allocations: 128)
+  Rendered layout layouts/application.html.erb (Duration: 188.4ms | Allocations: 41007)
+Completed 200 OK in 216ms (Views: 192.0ms | ActiveRecord: 0.9ms | Allocations: 48522)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 18:23:44 +0000
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 989)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 3412)
+Completed 200 OK in 17ms (Views: 16.6ms | ActiveRecord: 0.1ms | Allocations: 3760)
+
+
+Started GET "/authors" for 127.0.0.1 at 2022-11-24 18:23:45 +0000
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:6
+  Rendered authors/_author.html.erb (Duration: 0.8ms | Allocations: 262)
+  Rendered authors/index.html.erb within layouts/application (Duration: 15.6ms | Allocations: 4906)
+  Rendered layouts/_menu.html.erb (Duration: 0.2ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 7425)
+Completed 200 OK in 35ms (Views: 22.4ms | ActiveRecord: 1.0ms | Allocations: 10468)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 18:23:46 +0000
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (7.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 10.7ms | Allocations: 930)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 3234)
+Completed 200 OK in 23ms (Views: 13.9ms | ActiveRecord: 7.5ms | Allocations: 3556)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2022-11-24 18:23:46 +0000
+Processing by MoviesController#new as HTML
+  [1m[36mAuthor Pluck (0.3ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 35.3ms | Allocations: 8983)
+  Rendered movies/new.html.erb within layouts/application (Duration: 37.0ms | Allocations: 9286)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 46.8ms | Allocations: 11711)
+Completed 200 OK in 51ms (Views: 47.2ms | ActiveRecord: 0.6ms | Allocations: 12642)
+
+
+Started POST "/movies" for 127.0.0.1 at 2022-11-24 18:23:51 +0000
+Processing by MoviesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"title"=>"ass", "year"=>"1122", "author_ids"=>[""]}, "commit"=>"Create Movie"}
+  [1m[36mAuthor Pluck (0.2ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:28:in `block in create'
+  [1m[36mMovie Create (1.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "ass"], ["year", 1122], ["created_at", "2022-11-24 18:23:51.348318"], ["updated_at", "2022-11-24 18:23:51.348318"]]
+  ↳ app/controllers/movies_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (9.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:28:in `block in create'
+Redirected to http://127.0.0.1:3000/movies/4
+Completed 302 Found in 28ms (ActiveRecord: 11.4ms | Allocations: 4789)
+
+
+Started GET "/movies/4" for 127.0.0.1 at 2022-11-24 18:23:51 +0000
+Processing by MoviesController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:64:in `set_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/_movie.html.erb (Duration: 2.5ms | Allocations: 174)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_movies" ON "authors"."id" = "authors_movies"."author_id" WHERE "authors_movies"."movie_id" = ?[0m  [["movie_id", 4]]
+  ↳ app/views/movies/show.html.erb:5
+  Rendered movies/comments/_form.html.erb (Duration: 6.1ms | Allocations: 1278)
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."approved" = ?[0m  [["approved", 1]]
+  ↳ app/views/movies/comments/_index.html.erb:1
+  Rendered movies/comments/_index.html.erb (Duration: 4.4ms | Allocations: 902)
+  Rendered movies/show.html.erb within layouts/application (Duration: 26.2ms | Allocations: 7597)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 34.0ms | Allocations: 9994)
+Completed 200 OK in 59ms (Views: 35.9ms | ActiveRecord: 1.8ms | Allocations: 16988)
+
+
+Started GET "/movies/4/edit" for 127.0.0.1 at 2022-11-24 18:23:59 +0000
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:64:in `set_movie'
+  [1m[36mAuthor Pluck (0.2ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.html.erb within layouts/application
+  [1m[36mAuthor Pluck (0.2ms)[0m  [1m[34mSELECT "authors"."id" FROM "authors" INNER JOIN "authors_movies" ON "authors"."id" = "authors_movies"."author_id" WHERE "authors_movies"."movie_id" = ?[0m  [["movie_id", 4]]
+  ↳ app/views/movies/_form.html.erb:26
+  Rendered movies/_form.html.erb (Duration: 11.1ms | Allocations: 2450)
+  Rendered movies/edit.html.erb within layouts/application (Duration: 12.7ms | Allocations: 2727)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 5021)
+Completed 200 OK in 24ms (Views: 18.8ms | ActiveRecord: 0.6ms | Allocations: 6345)
+
+
+Started PATCH "/movies/4" for 127.0.0.1 at 2022-11-24 18:24:01 +0000
+Processing by MoviesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"title"=>"ass", "year"=>"", "author_ids"=>[""]}, "commit"=>"Update Movie", "id"=>"4"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:64:in `set_movie'
+  [1m[36mAuthor Pluck (0.2ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:41:in `block in update'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_movies" ON "authors"."id" = "authors_movies"."author_id" WHERE "authors_movies"."movie_id" = ?[0m  [["movie_id", 4]]
+  ↳ app/controllers/movies_controller.rb:41:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/movies_controller.rb:41:in `block in update'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 8.4ms | Allocations: 2327)
+  Rendered movies/edit.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2450)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 4743)
+Completed 422 Unprocessable Entity in 40ms (Views: 16.6ms | ActiveRecord: 0.8ms | Allocations: 9258)
+
+
+Started PATCH "/movies/4" for 127.0.0.1 at 2022-11-24 18:24:09 +0000
+Processing by MoviesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"title"=>"", "year"=>"2222", "author_ids"=>[""]}, "commit"=>"Update Movie", "id"=>"4"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:64:in `set_movie'
+  [1m[36mAuthor Pluck (0.1ms)[0m  [1m[34mSELECT "authors"."name", "authors"."id" FROM "authors"[0m
+  ↳ app/controllers/movies_controller.rb:68:in `set_authors'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:41:in `block in update'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_movies" ON "authors"."id" = "authors_movies"."author_id" WHERE "authors_movies"."movie_id" = ?[0m  [["movie_id", 4]]
+  ↳ app/controllers/movies_controller.rb:41:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/movies_controller.rb:41:in `block in update'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/edit.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 7.1ms | Allocations: 2248)
+  Rendered movies/edit.html.erb within layouts/application (Duration: 8.5ms | Allocations: 2371)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 4664)
+Completed 422 Unprocessable Entity in 50ms (Views: 33.8ms | ActiveRecord: 0.8ms | Allocations: 9021)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 18:25:04 +0000
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 12.1ms | Allocations: 2909)
+  Rendered layouts/_menu.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 30.0ms | Allocations: 16713)
+Completed 200 OK in 46ms (Views: 31.6ms | ActiveRecord: 2.0ms | Allocations: 20158)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2022-11-24 18:25:06 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:64:in `set_movie'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/_movie.html.erb (Duration: 0.1ms | Allocations: 32)
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_movies" ON "authors"."id" = "authors_movies"."author_id" WHERE "authors_movies"."movie_id" = ?[0m  [["movie_id", 1]]
+  ↳ app/views/movies/show.html.erb:5
+  Rendered movies/comments/_form.html.erb (Duration: 2.9ms | Allocations: 762)
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."approved" = ?[0m  [["approved", 1]]
+  ↳ app/views/movies/comments/_index.html.erb:1
+  Rendered movies/comments/_index.html.erb (Duration: 2.6ms | Allocations: 635)
+  Rendered movies/show.html.erb within layouts/application (Duration: 38.6ms | Allocations: 11270)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 54.0ms | Allocations: 13666)
+Completed 200 OK in 74ms (Views: 53.4ms | ActiveRecord: 2.4ms | Allocations: 17866)
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-11-24 18:25:10 +0000
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:15
+  Rendered movies/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 936)
+  Rendered layouts/_menu.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 3240)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.2ms | Allocations: 3547)
+
+
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
